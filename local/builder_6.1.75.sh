@@ -13,18 +13,28 @@ MANIFEST=${MANIFEST:-oppo+oplus+realme}
 read -p "请输入自定义内核后缀（默认：android14-11-o-gca13bffobf09）: " CUSTOM_SUFFIX
 CUSTOM_SUFFIX=${CUSTOM_SUFFIX:-android14-11-o-gca13bffobf09}
 USE_PATCH_LINUX=${USE_PATCH_LINUX:-y}
+
 read -p "是否应用 kprobes钩子？(y/n，默认：n): " APPLY_KPROBES
 APPLY_LZ4KD=${APPLY_KPROBES:-n}
+
 read -p "是否应用 lz4 1.10.0 & zstd 1.5.7 补丁？(y/n，默认：y): " APPLY_LZ4
 APPLY_LZ4=${APPLY_LZ4:-y}
+
 read -p "是否应用 lz4kd 补丁？(y/n，默认：y): " APPLY_LZ4KD
 APPLY_LZ4KD=${APPLY_LZ4KD:-y}
+
+read -p "是否应用 KPM 补丁？(y/n，默认：n): " APPLY_KPM
+APPLY_KPM=${APPLY_KPM:-n}
+
 read -p "是否添加 BBR 等一系列拥塞控制算法？(y添加/n禁用/d默认，默认：n): " APPLY_BBR
 APPLY_BBR=${APPLY_BBR:-n}
+
 read -p "是否启用三星SSG IO调度器？(y/n，默认：y): " APPLY_SSG
 APPLY_SSG=${APPLY_SSG:-y}
+
 read -p "是否安装风驰内核驱动（未完成）？(y/n，默认：n): " APPLY_SCX
 APPLY_SCX=${APPLY_SCX:-n}
+
 echo
 echo "===== 配置信息 ====="
 echo "SoC 分支: $SOC_BRANCH"
@@ -32,6 +42,7 @@ echo "适用机型: $MANIFEST"
 echo "自定义内核后缀: -$CUSTOM_SUFFIX"
 echo "使用 patch_linux: $USE_PATCH_LINUX"
 echo "使用 kprobes钩子: $APPLY_KPROBES"
+echo "应用KPM补丁: $APPLY_KPM"
 echo "应用 lz4&zstd 补丁: $APPLY_LZ4"
 echo "应用 lz4kd 补丁: $APPLY_LZ4KD"
 echo "应用 BBR 等算法: $APPLY_BBR"
